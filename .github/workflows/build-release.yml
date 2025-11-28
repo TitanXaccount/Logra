@@ -1,3 +1,4 @@
+
 name: Build Release
 on: [push]
 
@@ -9,6 +10,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           java-version: '17'
+          distribution: 'temurin'
       - run: ./gradlew assembleRelease
       - uses: actions/upload-artifact@v4
         with:
