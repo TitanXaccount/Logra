@@ -1,97 +1,77 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.kotlin.android)
+    id("com.android.application")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
     namespace = "xyz.wingio.logra"
-    compileSdk = 33
-
+    compileSdk = 34
+    
     defaultConfig {
         applicationId = "xyz.wingio.logra"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1330
-        versionName = "ALPHA - 1.30"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        named("release") {
-            isMinifyEnabled = true
-            isShrinkResources = true
-            setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
-        }
+        versionName = "1.30"
     }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-    }
-
+    
     kotlinOptions {
         jvmTarget = "17"
-        freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
-        freeCompilerArgs += "-Xcontext-receivers"
+    }
+
+    signingConfigs {
+        create("release") {
+            storeFile = file("keystore.jks")
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("KEY_ALIAS")
+            keyPassword = System.getenv("KEY_PASSWORD")
+        }
+    }
+
+    buildTypes {
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("release")
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
     }
 
     buildFeatures {
         compose = true
-        buildConfig = true
     }
-
-    androidComponents {
-        onVariants(selector().withBuildType("release")) {
-            it.packaging.resources.excludes.apply {
-                // Debug metadata
-                add("/**/*.version")
-                add("/kotlin-tooling-metadata.json")
-                // Kotlin debugging (https://github.com/Kotlin/kotlinx.coroutines/issues/2274)
-                add("/DebugProbesKt.bin")
-            }
-        }
-    }
-
-    packaging {
-        resources {
-            // Reflection symbol list (https://stackoverflow.com/a/41073782/13964629)
-            excludes += "/**/*.kotlin_builtins"
-        }
-    }
-
-    sourceSets {
-        applicationVariants.all {
-            getByName(name) {
-                kotlin.srcDir("build/generated/ksp/$name/kotlin")
-            }
-        }
-    }
-}
-
-configurations {
-    implementation {
-        exclude("org.jetbrains", "annotations")
+    
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.3"
     }
 }
 
 dependencies {
-    implementation(libs.bundles.androidx.core)
-    implementation(libs.bundles.compose)
-    implementation(libs.bundles.accompanist)
-    implementation(libs.bundles.koin)
-    implementation(libs.bundles.kotlinx)
-    implementation(libs.bundles.shizuku)
-    implementation(libs.bundles.voyager)
-    implementation(libs.bundles.room)
-
-    implementation(libs.colorpicker)
-    implementation(libs.bottomsheetdialog)
-
-    ksp(libs.room.compiler)
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.activity:activity-compose:1.7.2")
+    implementation("androidx.compose.ui:ui:1.4.3")
+    implementation("androidx.compose.ui:ui-tooling:1.4.3")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.4.3")
+    implementation("androidx.compose.material3:material3:1.1.0")
+    implementation("androidx.compose.material:material-icons-extended:1.4.3")
+    implementation("androidx.navigation:navigation-compose:2.6.0")
+    implementation("io.insert-koin:koin-android:3.4.0")
+    implementation("io.insert-koin:koin-androidx-compose:3.4.3")
+    implementation("androidx.room:room-runtime:2.5.2")
+    implementation("androidx.room:room-ktx:2.5.2")
+    kapt("androidx.room:room-compiler:2.5.2")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.30.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    implementation("androidx.compose.compiler:compiler:1.4.3")
 }
