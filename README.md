@@ -8,7 +8,7 @@
  
 | Compact mode off  | Compact mode on | Settings  |
 |---|---|---|
-| <img width="200px" src="/images/compact-mode-off.png" />  | <img width="200px" src="compact-mode.png" />  | <img width="200px" src="settings.png" />  |
+| <img width="200px" src="/images/compact-mode-off.png" />  | <img width="200px" src="/images/compact-mode.png" />  | <img width="200px" src="/images/settings.png" />  |
 
 </div>
 
