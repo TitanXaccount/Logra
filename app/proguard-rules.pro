@@ -48,14 +48,12 @@
 # Keep Koin
 -keep class org.koin.** { *; }
 
-# ADD THESE TO FIX THE MISSING CLASSES ERROR:
--keep class javax.lang.model.** { *; }
--keep class javax.annotation.processing.** { *; }
+# KEEP ALL JAVA ANNOTATION PROCESSING CLASSES:
+-keep class javax.** { *; }
 -keep class com.google.auto.** { *; }
--keep class com.squareup.javapoet.** { *; }
--keep class com.squareup.kotlinpoet.** { *; }
+-keep class com.squareup.** { *; }
 
-# Keep Room generated classes
+# Keep Room
 -keep class * extends androidx.room.RoomDatabase { *; }
 -keep @androidx.room.Entity class * { *; }
 
