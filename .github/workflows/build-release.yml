@@ -20,5 +20,3 @@ jobs:
           name: app
           path: app/build/outputs/apk/release/*.apk
 
-
-
