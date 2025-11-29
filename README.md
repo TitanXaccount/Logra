@@ -16,9 +16,4 @@ Installation
 ---
  1. Download either the [latest release](https://github.com/TitanXaccount/Logra/releases) if on PC then transfer the file over to your phone
  2. Make sure to allow install unknown apps
- 4. Install the apk
-License
----
-Logra is licensed under the GNU General Public License v2.0
-
-[![License: GPLv2](https://img.shields.io/badge/License-GPL%20v2-blue.svg?style=for-the-badge)](https://github.com/wingio/Logra/blob/main/LICENSE)
+ 3. Install the apk
