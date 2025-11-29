@@ -1,3 +1,4 @@
+
 name: Build Release
 on:
   workflow_dispatch:
@@ -15,7 +16,7 @@ jobs:
 
       - name: Setup Signing
         run: |
-          echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
+          echo "${{ secrets.KEYSTORE }}" | base64 -d > app/keystore.jks
 
       - name: Build Signed APK
         run: ./gradlew assembleRelease
