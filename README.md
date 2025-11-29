@@ -5,17 +5,6 @@
   # Logra
   
   Material You logcat viewer for Android
-  
-  ---
-  ![Debug build status](https://img.shields.io/github/actions/workflow/status/wingio/Logra/build-debug.yml?label=Debug%20Build&logo=github&style=for-the-badge&branch=main)
-  [![Latest](https://img.shields.io/github/v/release/wingio/Logra?display_name=release&include_prereleases&label=Latest&style=for-the-badge)](https://github.com/wingio/Logra/releases/latest)
-  [![GitHub downloads](https://img.shields.io/github/downloads/wingio/Logra/total?style=for-the-badge)](https://github.com/wingio/Logra/releases/latest)
-  
-  <br>
-  
-  ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/wingio/Logra?logo=github&logoColor=%23fff&style=for-the-badge)
-  ![Line count](https://img.shields.io/tokei/lines/github/wingio/Logra?logo=github&logoColor=%23fff&style=for-the-badge)
-  ![GitHub top language](https://img.shields.io/github/languages/top/wingio/Logra?style=for-the-badge)
  
 | Compact mode off  | Compact mode on | Settings  |
 |---|---|---|
@@ -25,15 +14,9 @@
 
 Installation
 ---
- 1. Download either the [latest release](https://github.com/wingio/Logra/releases/latest) or the [latest actions build](https://nightly.link/wingio/Logra/workflows/build-debug/main/app-debug.zip), if on PC then transfer the file over to your phone
- 2. If you downloaded from Github Actions then unzip `app-debug.zip`
- 3. Make sure to allow install unknown apps
+ 1. Download either the [latest release](https://github.com/wingio/Logra/releases/latest) if on PC then transfer the file over to your phone
+ 2. Make sure to allow install unknown apps
  4. Install the apk
-
-Build Instructions
----
-See [build-debug](https://github.com/wingio/Logra/blob/main/.github/workflows/build-debug.yml) for build instructions
-
 License
 ---
 Logra is licensed under the GNU General Public License v2.0
