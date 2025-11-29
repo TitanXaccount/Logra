@@ -1,9 +1,6 @@
 name: Build Release
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/release.yml'
 
 jobs:
   build:
