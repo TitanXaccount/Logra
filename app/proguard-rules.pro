@@ -81,3 +81,33 @@
 -keep class xyz.wingio.logra.ui.** { *; }
 -keep class xyz.wingio.logra.domain.** { *; }
 -keep class xyz.wingio.logra.data.** { *; }
+
+# Keep all classes in your app package
+-keep class xyz.wingio.logra.** { *; }
+
+# Keep all Composable functions
+-keep @androidx.compose.runtime.Composable class * {
+    @androidx.compose.runtime.Composable <methods>;
+}
+
+# Keep ViewModels
+-keepclassmembers class * extends androidx.lifecycle.ViewModel {
+    <init>(...);
+}
+
+# Keep Room components
+-keep class * extends androidx.room.RoomDatabase {
+    *;
+}
+-keep @androidx.room.Entity class * { *; }
+
+# Keep Koin components
+-keep class org.koin.** { *; }
+-keepclassmembers class * {
+    @org.koin.core.annotation.Module *;
+    @org.koin.core.annotation.Single *;
+    @org.koin.core.annotation.Factory *;
+}
+
+# Disable aggressive optimization temporarily to fix R8
+-dontoptimize
