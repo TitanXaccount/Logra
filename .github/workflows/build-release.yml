@@ -1,8 +1,9 @@
 name: Build Release
 on:
+  workflow_dispatch:
   push:
     paths:
-      - '.github/workflows/build-release.yml'
+      - '.github/workflows/release.yml'
 
 jobs:
   build:
@@ -19,9 +20,3 @@ jobs:
         with:
           name: app
           path: app/build/outputs/apk/release/*.apk
-
-
-
-
-
-
