@@ -11,9 +11,9 @@ android {
     signingConfigs {
         create("release") {
             storeFile = file("../keystore.jks")
-            storePassword = System.getenv("KEYSTORE_PASSWORD")
-            keyAlias = System.getenv("KEY_ALIAS")
-            keyPassword = System.getenv("KEY_PASSWORD")
+            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: ""
+            keyAlias = System.getenv("KEY_ALIAS") ?: ""
+            keyPassword = System.getenv("KEY_PASSWORD") ?: ""
             enableV2Signing = true
             enableV3Signing = false
             enableV4Signing = false
@@ -34,7 +34,6 @@ android {
             signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = false
             isShrinkResources = false
-            // Remove all ProGuard references
         }
     }
 
