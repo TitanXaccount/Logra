@@ -1,7 +1,63 @@
+## Keep `Companion` object fields of serializable classes.
+## This avoids serializer lookup through `getDeclaredClasses` as done for named companion objects.
+-if @kotlinx.serialization.Serializable class **
+-keepclassmembers class <1> {
+    static <1>$Companion Companion;
+}
+
+## Keep `serializer()` on companion objects (both default and named) of serializable classes.
+-if @kotlinx.serialization.Serializable class ** {
+    static **$* *;
+}
+-keepclassmembers class <2>$<3> {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+
+## Keep `INSTANCE.serializer()` of serializable objects.
+-if @kotlinx.serialization.Serializable class ** {
+    public static ** INSTANCE;
+}
+-keepclassmembers class <1> {
+    public static <1> INSTANCE;
+    kotlinx.serialization.KSerializer serializer(...);
+}
+
+## @Serializable and @Polymorphic are used at runtime for polymorphic serialization.
+-keepattributes RuntimeVisibleAnnotations,AnnotationDefault
+
+-keepnames class <1>$$serializer { # -keepnames suffices; class is kept when serializer() is kept.
+    static <1>$$serializer INSTANCE;
+}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+-keepattributes SourceFile,LineNumberTable
+
+# Repackage classes into the top-level.
+-repackageclasses
+
+# Amount of optimization iterations, taken from an SO post
+-optimizationpasses 5
+
+# Broaden access modifiers to increase results during optimization
+-allowaccessmodification
+
+# Add these for your dependencies
 -keep class androidx.compose.** { *; }
 -keep class * extends androidx.room.RoomDatabase { *; }
 -keep class * extends androidx.lifecycle.ViewModel { *; }
--keep class org.koin.** { *; }
+-keep class io.insert-koin.** { *; }
 -keep class kotlinx.coroutines.** { *; }
--keepattributes SourceFile,LineNumberTable
 -keep class xyz.wingio.logra.** { *; }
+
+# Keep Koin
+-keep class org.koin.** { *; }
+-keepclassmembers class * {
+    @org.koin.core.annotation.Module *;
+}
+-keepclassmembers class * {
+    @org.koin.core.annotation.Single *;
+}
+-keepclassmembers class * {
+    @org.koin.core.annotation.Factory *;
+}
