@@ -2,7 +2,7 @@
 
   <img src="/images/logo.png" alt="Logra logo" width="150px" />
   
-  # Logra
+  # Logra Revived
   
   Material You logcat viewer for Android
  
@@ -14,7 +14,7 @@
 
 Installation
 ---
- 1. Download either the [latest release](https://github.com/wingio/Logra/releases/latest) if on PC then transfer the file over to your phone
+ 1. Download either the [latest release](https://github.com/TitanXaccount/Logra/releases) if on PC then transfer the file over to your phone
  2. Make sure to allow install unknown apps
  4. Install the apk
 License
