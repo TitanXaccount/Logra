@@ -18,7 +18,7 @@ android {
             enableV3Signing = false
             enableV4Signing = false
         }
-    }   
+    }
 
     defaultConfig {
         applicationId = "xyz.wingio.logra"
@@ -35,10 +35,9 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt")))
-
             isUseProguard = true
         }
-    }   
+    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
