@@ -42,6 +42,22 @@
 # Broaden access modifiers to increase results during optimization
 -allowaccessmodification
 
-# Add ONLY these essential keep rules:
+# Keep your app classes
 -keep class xyz.wingio.logra.** { *; }
+
+# Keep Koin
 -keep class org.koin.** { *; }
+
+# ADD THESE TO FIX THE MISSING CLASSES ERROR:
+-keep class javax.lang.model.** { *; }
+-keep class javax.annotation.processing.** { *; }
+-keep class com.google.auto.** { *; }
+-keep class com.squareup.javapoet.** { *; }
+-keep class com.squareup.kotlinpoet.** { *; }
+
+# Keep Room generated classes
+-keep class * extends androidx.room.RoomDatabase { *; }
+-keep @androidx.room.Entity class * { *; }
+
+# Keep KSP generated code
+-keep class **$$serializer { *; }
