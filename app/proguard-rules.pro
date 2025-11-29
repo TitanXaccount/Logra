@@ -61,3 +61,23 @@
 -keepclassmembers class * {
     @org.koin.core.annotation.Factory *;
 }
+
+# Keep Shizuku
+-keep class dev.rikka.shizuku.** { *; }
+
+# Keep Voyager
+-keep class cafe.adriel.voyager.** { *; }
+
+# Keep Room entities
+-keepclassmembers class * {
+    @androidx.room.Entity *;
+    @androidx.room.PrimaryKey *;
+}
+
+# Keep Compose runtime
+-keep class androidx.compose.runtime.** { *; }
+
+# Keep your app's main components
+-keep class xyz.wingio.logra.ui.** { *; }
+-keep class xyz.wingio.logra.domain.** { *; }
+-keep class xyz.wingio.logra.data.** { *; }
