@@ -1,5 +1,5 @@
 [versions]
-agp = "8.2.2"
+agp = "8.2.2"  # Changed from 8.1.0-alpha11
 compose = "1.4.2"
 compose-compiler = "1.4.4"
 koin = "3.4.0"
