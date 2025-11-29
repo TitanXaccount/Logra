@@ -5,7 +5,11 @@
   # Logra Revived
   
   Material You logcat viewer for Android
- 
+
+ ### Disclaimer
+
+This is a **FORK** of Logra. If you are looking for the original version, please visit the [Wingio/Logra](https://github.com/wingio/logra) repository.
+
 | Compact mode off  | Compact mode on | Settings  |
 |---|---|---|
 | <img width="200px" src="/images/compact-mode-off.png" />  | <img width="200px" src="/images/compact-mode.png" />  | <img width="200px" src="/images/settings.png" />  |
