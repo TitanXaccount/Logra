@@ -1,5 +1,15 @@
 name: Build Release
-on: [push]
+on:
+  push:
+    paths:
+      - 'app/src/**'
+      - 'app/build.gradle.kts'
+      - 'app/proguard-rules.pro'
+      - 'gradle/**'
+      - 'build.gradle.kts'
+      - 'gradle.properties'
+      - 'settings.gradle.kts'
+      - '.github/workflows/build-release.yml'
 
 jobs:
   build:
