@@ -8,7 +8,7 @@
  
 | Compact mode off  | Compact mode on | Settings  |
 |---|---|---|
-| <img width="200px" src="/images/compact-mode-off.png" />  | <img width="200px" src="https://user-images.githubusercontent.com/44992537/180328214-2e0086cc-fe5c-4a83-864a-9e3d8a55d78d.png" />  | <img width="200px" src="https://user-images.githubusercontent.com/44992537/180327957-897c3912-6389-4e6f-8f05-7451186fe0fa.png" />  |
+| <img width="200px" src="/images/compact-mode-off.png" />  | <img width="200px" src="compact-mode.png" />  | <img width="200px" src="settings.png" />  |
 
 </div>
 
