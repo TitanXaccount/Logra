@@ -8,6 +8,18 @@ android {
     namespace = "xyz.wingio.logra"
     compileSdk = 33
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("../keystore.jks")
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("KEY_ALIAS")
+            keyPassword = System.getenv("KEY_PASSWORD")
+            enableV2Signing = true
+            enableV3Signing = false
+            enableV4Signing = false
+        }
+    }
+
     defaultConfig {
         applicationId = "xyz.wingio.logra"
         minSdk = 26
@@ -19,6 +31,7 @@ android {
 
     buildTypes {
         named("release") {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
             isShrinkResources = true
             setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
